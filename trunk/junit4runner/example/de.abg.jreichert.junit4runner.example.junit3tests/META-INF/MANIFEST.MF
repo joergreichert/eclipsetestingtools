@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JUnit3 Test Runner
+Bundle-SymbolicName: de.abg.jreichert.junit4runner.example.junit3tests
+Bundle-Version: 0.0.1.qualifier
+Bundle-Vendor: Joerg Reichert
+Fragment-Host: de.abg.jreichert.junit4runner.example;bundle-version="[0.0.1,0.0.2)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit;bundle-version="3.8.2"
