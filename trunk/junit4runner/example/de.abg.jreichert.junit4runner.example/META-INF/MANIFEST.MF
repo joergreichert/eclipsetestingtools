@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JUnit4 Runner
+Bundle-SymbolicName: de.abg.jreichert.junit4runner.example
+Bundle-Version: 0.0.1.qualifier
+Bundle-Activator: de.abg.jreichert.junit4runner.Activator
+Bundle-Vendor: Joerg Reichert
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
