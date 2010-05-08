@@ -3,52 +3,24 @@
 <plugin>
 
    <extension
-         point="org.eclipse.ui.perspectiveExtensions">
-      <perspectiveExtension
-            targetID="org.eclipse.jdt.ui.JavaPerspective">
-         <view
-               relative="org.eclipse.jdt.ui.PackageExplorer"
-               visible="false"
-               id="org.eclipse.jdt.junit.ResultView"
-               relationship="stack">
-         </view>
-         <newWizardShortcut
-               id="org.eclipse.jdt.junit.wizards.NewTestCase4CreationWizard">
-         </newWizardShortcut>
-      </perspectiveExtension>
-      <perspectiveExtension
-            targetID="org.eclipse.jdt.ui.JavaPerspective">
-         <actionSet
-               id="org.eclipse.jdt.junit.JUnitActionSet">
-         </actionSet>
-      </perspectiveExtension>
-      <perspectiveExtension
-            targetID="org.eclipse.jdt.ui.JavaBrowsingPerspective">
-         <actionSet
-               id="org.eclipse.jdt.junit.JUnitActionSet">
-         </actionSet>
-         <newWizardShortcut
-               id="org.eclipse.jdt.junit.wizards.NewTestCase4CreationWizard">
-         </newWizardShortcut>
-      </perspectiveExtension>
-   </extension>
-   <extension
          point="org.eclipse.ui.newWizards">
       <category
-            name="%WizardCategory.name"
+            name="JUnit 4"
             parentCategory="org.eclipse.jdt.ui.java"
-            id="org.eclipse.jdt.junit">
+            id="org.eclipse.jdt.junit4">
       </category>
       <wizard
-            name="%TestSuiteWizard.name"
-            category="org.eclipse.jdt.ui.java/org.eclipse.jdt.junit"
+            category="org.eclipse.jdt.ui.java/org.eclipse.jdt.junit4"
             class="de.abg.jreichert.junit4runner.NewTestSuite4CreationWizard"
-            id="de.abg.jreichert.junit4runner.NewTestSuite4CreationWizard">
+            icon="$nl$/icons/full/etool16/new_testsuite.gif"
+            id="de.abg.jreichert.junit4runner.NewTestSuite4CreationWizard"
+            name="JUnit 4 Test Suite">
          <description>
-            %SuiteWizard.description
+            Create a JUnit 4 Test Suite
          </description>
       </wizard>
    </extension>
+   
    <extension
          point="org.eclipse.ui.popupMenus">
       <objectContribution
@@ -56,122 +28,13 @@
             nameFilter="*Tests.java"
             id="org.eclipse.jdt.junit.wizards.UpdateTestSuite4">
          <action
-               label="%UpdateSuiteAction.label"
+               label="Recreate JUnit 4 Test Suite..."
                class="de.abg.jreichert.junit4runner.UpdateTestSuite4"
-               tooltip="%UpdateSuiteAction.tooltip"
+               tooltip="Recreate JUnit 4 TestSuite with New Test Classes"
                enablesFor="1"
                id="updateTestSuite">
          </action>
       </objectContribution>
    </extension>
-      <extension
-         point="org.eclipse.ui.actionSetPartAssociations">
-      <actionSetPartAssociation
-            targetID="org.eclipse.jdt.junit.JUnitActionSet">
-         <part
-               id="org.eclipse.jdt.ui.PackageExplorer">
-         </part>
-         <part
-               id="org.eclipse.jdt.ui.TypeHierarchy">
-         </part>
-         <part
-               id="org.eclipse.jdt.ui.CompilationUnitEditor">
-         </part>
-         <part
-               id="org.eclipse.jdt.ui.ClassFileEditor">
-         </part>
-         <part
-               id="org.eclipse.jdt.ui.ProjectsView">
-         </part>
-         <part
-               id="org.eclipse.jdt.ui.PackagesView">
-         </part>
-         <part
-               id="org.eclipse.jdt.ui.TypesView">
-         </part>
-         <part
-               id="org.eclipse.jdt.ui.MembersView">
-         </part>
-         <part
-               id="org.eclipse.search.SearchResultView">
-         </part>
-      </actionSetPartAssociation>
-      <actionSetPartAssociation
-            targetID="org.eclipse.jdt.ui.JavaActionSet">
-         <part
-               id="org.eclipse.jdt.junit.ResultView">
-         </part>
-      </actionSetPartAssociation>
-   </extension>
-   <extension
-         point="org.eclipse.jdt.junit.junitLaunchConfigs">
-      <launchConfigType
-            configTypeID="org.eclipse.jdt.junit.launchconfig">
-      </launchConfigType>
-   </extension>
-
-   <extension
-         point="org.eclipse.ui.commands">
-      <command
-         name="%GotoTestCommand.name"
-         description="%GotoTestCommand.description"
-         categoryId="org.eclipse.search.ui.category.search"
-         id="org.eclipse.jdt.junit.gotoTest">
-      </command>
-      <command
-            name="%JUnitShortcut.description.run"
-            description="%JUnitShortcut.description.run"
-            categoryId="org.eclipse.debug.ui.category.run"
-            id="org.eclipse.jdt.junit.junitShortcut.run">
-      </command>
-      <command
-            name="%JUnitShortcut.description.debug"
-            description="%JUnitShortcut.description.debug"
-            categoryId="org.eclipse.debug.ui.category.run"
-            id="org.eclipse.jdt.junit.junitShortcut.debug">
-      </command>
-      <command
-            name="%JUnitShortcut.description.rerunLast"
-            description="%JUnitShortcut.description.rerunLast"
-            categoryId="org.eclipse.debug.ui.category.run"
-            id="org.eclipse.jdt.junit.junitShortcut.rerunLast">
-      </command>
-      <command
-            name="%JUnitShortcut.description.rerunFailedFirst"
-            description="%JUnitShortcut.description.rerunFailedFirst"
-            categoryId="org.eclipse.debug.ui.category.run"
-            id="org.eclipse.jdt.junit.junitShortcut.rerunFailedFirst">
-      </command>       
-   </extension>
    
-   <extension
-         point="org.eclipse.ui.bindings">
-      <key
-            sequence="M2+M3+D T"
-            commandId="org.eclipse.jdt.junit.junitShortcut.debug"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
-      <!-- On carbon: Shift+Option+D is a character, Command+Option+D is Show/Hide Dock, Command+Control+D is dictionary lookup -->
-      <key
-            platform="carbon"
-            sequence="M2+M3+D T"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
-      <key
-            platform="carbon"
-            sequence="M1+M3+M4+D T"
-            commandId="org.eclipse.jdt.junit.junitShortcut.debug"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
-      <key
-            sequence="M2+M3+X T"
-            commandId="org.eclipse.jdt.junit.junitShortcut.run"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
-      <key
-            platform="carbon"
-            sequence="M2+M3+X T"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
-      <key
-            platform="carbon"
-            sequence="M1+M3+X T"
-            commandId="org.eclipse.jdt.junit.junitShortcut.run"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
-   </extension>
 </plugin>

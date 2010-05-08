@@ -15,11 +15,8 @@ import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.internal.junit.BasicElementLabels;
 import org.eclipse.jdt.internal.junit.Messages;
-import org.eclipse.jdt.internal.junit.ui.JUnitPlugin;
 import org.eclipse.jdt.internal.junit.wizards.JUnitWizard;
-import org.eclipse.jdt.internal.junit.wizards.WizardMessages;
 import org.eclipse.jdt.internal.ui.javaeditor.EditorUtility;
-import org.eclipse.jdt.junit.wizards.NewTestSuiteWizardPage;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.ui.IEditorPart;
@@ -70,7 +67,7 @@ public class NewTestSuite4CreationWizard extends JUnitWizard {
 						getContainer()
 								.run(false, false, getRunnableSave(cu_ep));
 					} catch (Exception e) {
-						JUnitPlugin.log(e);
+						Activator.log(e);
 					}
 				}
 			}
@@ -108,7 +105,7 @@ public class NewTestSuite4CreationWizard extends JUnitWizard {
 						return false;
 					}
 				} catch (JavaModelException e) {
-					JUnitPlugin.log(e);
+					Activator.log(e);
 					return false;
 				}
 			}
@@ -131,8 +128,8 @@ public class NewTestSuite4CreationWizard extends JUnitWizard {
 						Messages.format(
 								WizardMessages.NewTestSuiteWizPage_cannotUpdateDialog_message,
 								new String[] {
-										NewTestSuiteWizardPage.START_MARKER,
-										NewTestSuiteWizardPage.END_MARKER }));
+										NewTestSuite4WizardPage.START_MARKER,
+										NewTestSuite4WizardPage.END_MARKER }));
 
 	}
 
@@ -153,8 +150,7 @@ public class NewTestSuite4CreationWizard extends JUnitWizard {
 	}
 
 	protected void initializeDefaultPageImageDescriptor() {
-		setDefaultPageImageDescriptor(JUnitPlugin
-				.getImageDescriptor("wizban/newtest_wiz.png")); //$NON-NLS-1$
+		setDefaultPageImageDescriptor(Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "wizban/newtest_wiz.png")); //$NON-NLS-1$
 	}
 
 	public IRunnableWithProgress getRunnableSave(final IEditorPart cu_ep) {
