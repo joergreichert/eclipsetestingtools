@@ -1,5 +1,10 @@
 package de.abg.jreichert.junit4runner;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -46,5 +51,37 @@ public class Activator extends AbstractUIPlugin {
 	public static Activator getDefault() {
 		return plugin;
 	}
+	
+	public static void log(Throwable e) {
+		log(new Status(IStatus.ERROR, getPluginId(), IStatus.ERROR, "Error", e)); //$NON-NLS-1$
+	}
+	
+	public static String getPluginId() {
+		return PLUGIN_ID;
+	}
 
+	public static void log(IStatus status) {
+		getDefault().getLog().log(status);
+	}
+
+	public static Shell getActiveWorkbenchShell() {
+		IWorkbenchWindow workBenchWindow= getActiveWorkbenchWindow();
+		if (workBenchWindow == null)
+			return null;
+		return workBenchWindow.getShell();
+	}
+	
+	/**
+	 * Returns the active workbench window
+	 *
+	 * @return the active workbench window
+	 */
+	public static IWorkbenchWindow getActiveWorkbenchWindow() {
+		if (plugin == null)
+			return null;
+		IWorkbench workBench= plugin.getWorkbench();
+		if (workBench == null)
+			return null;
+		return workBench.getActiveWorkbenchWindow();
+	}
 }
