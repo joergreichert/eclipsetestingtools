@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="de.abg.jreichert.eclipsetestingtools"
+      label="Eclipse Testing Tools"
+      version="0.0.1.qualifier"
+      provider-name="Joerg Reichert">
+
+   <description>
+      Eclipse Testing Tools - a collection of hopefully useful testing tool extensions for the Eclipse platform.
+   </description>
+
+   <copyright>
+      use controlled by Eclipse Public License - v 1.0
+   </copyright>
+
+   <license url="http://www.eclipse.org/legal/epl-v10.html">
+      Eclipse Public License - v 1.0
+   </license>
+
+   <plugin
+         id="de.abg.jreichert.junit4runner"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
