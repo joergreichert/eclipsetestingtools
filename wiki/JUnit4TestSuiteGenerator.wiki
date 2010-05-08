@@ -1,0 +1,22 @@
+#summary How to use the JUnit test suite generator.
+
+= JUnit 4 test suite generator =
+
+== Install ==
+
+ # Download and extract the [http://eclipsetestingtools.googlecode.com/files/de.abg.jreichert.eclipsetestingtools.updatesite.zip update site] <br />
+ # Add the local update site in the install manager <br />
+   https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/update_site_screenshots/01.png <br /><br />
+   https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/update_site_screenshots/02.png <br /><br />
+   https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/update_site_screenshots/03.png <br /><br />
+   https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/update_site_screenshots/04.png <br />
+ # Install the plug-in and restart Eclipse
+
+<br />
+
+== Use ==
+
+https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/01.png <br /><br />
+https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/02.png <br /><br />
+https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/03.png <br /><br />
+https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/04.png
