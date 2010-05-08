@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/de.abg.jreichert.eclipsetestingtools_0.0.1.qualifier.jar" id="de.abg.jreichert.eclipsetestingtools" version="0.0.1.qualifier">
+      <category name="eclipsetestingtools"/>
+   </feature>
+   <category-def name="eclipsetestingtools" label="Eclipse Testing Tools"/>
+</site>
