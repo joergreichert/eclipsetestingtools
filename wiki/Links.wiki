@@ -1,57 +1,4 @@
-#links to articles, web-sites and so on
-
-= General libraries and tools =
- * [http://junit.org/ JUnit]
- * [http://testng.org/doc/index.html TestNG]
- * [http://fest.easytesting.org/wiki/pmwiki.php Fixtures for Easy Software Testing (FEST)]: library of tools to ease testing
- * [http://unitils.sourceforge.net/ Unitils]: java libraries offering general testing methods
- * [Mycila Testing Framework]: integration of JMock, Guice, Spring and others
- * [http://www.opensourcetesting.org/ Open Source Software Testing Tools]  sorted by purpose and programming language and provided with short description
-
-
-= Mock frameworks =
- * [https://jmockit.dev.java.net/ JMockit Testing Toolkit]
- * [http://code.google.com/p/powermock/ PowerMock]
- * [http://code.google.com/p/mockito/ Mockito]
- * [http://www.jmock.org/ JMock]
- * [http://www.easymock.org/ EasyMock]
- * [https://jeasytest.dev.java.net/ JEasyTest]: framework for testing applications that cannot be tested with the means of standard mocking frameworks
-
-
-= Eclipse plug-ins =
- * [http://moreunit.sourceforge.net/ MoreUnit]: marks class for that currently no JUnit tests exist
- * [http://improvingworks.com/products/infinitest/ Infinitest]: triggers test execution when code base has changed
- * [http://www.eclemma.org/ EclEmma]: visualize Code coverage
- * [djUnit]: JUnit TestRunner with the custom classloader. It modifies class in loading to JVM, and runs tests using the modified class. Testing using Virtual Mock Objects is possible so.
- * [http://lattu.sourceforge.net/ Lattu]: Framework for testing Eclipse RCP Applications
-
-
-= Profiler =
- * [http://code.google.com/p/oktech-profiler/ OKTECH Profiler]
- * [http://www.manageability.org/blog/stuff/open-source-profilers-for-java Open Source Profilers for Java]
- * [http://www.khelekore.org/jmp/tijmp/index.shtml Tiger Java Memory Profiler (TIJmp)]
- * [http://jamonapi.sourceforge.net/ Java Application Monitor (JAMon)]
-
-
-= Fixture tests =
- * [http://code.google.com/p/trinidad/ trinidad]: In-Process Test Runner for FitNesse Tests
- * [http://simplium.sektor.se/ Simplium]: integration of JUnit and Selenium
-
-
-= GUI tests =
-  * [http://swtbot.sourceforge.net/index.html SWTBot at Sourceforge] and at [http://www.eclipse.org/swtbot/ Eclipse]
-  * [http://code.google.com/p/swtbot4gef/ SWTBot4GEF]
-
-
-= OSGi =
- * [http://sourceforge.net/projects/osgiunit/ OSGiUnit]: JUnit tests for OSGi applications
- * [http://sourceforge.net/projects/osgi-bdt/ OSGi BDT]: tools to support building, deploying, and testing OSGi applications
-
-
-= Testing concurrent programs =
- * [http://www.alphaworks.ibm.com/tech/contest ConTest]
- * [http://code.google.com/p/jconch/ JConch]
-
+# links to articles, web-sites and so on
 
 = Articles =
 
@@ -145,3 +92,58 @@
  * [http://www.model-based-testing.de/quombat10/data/100406.1200-1230.quombat.Guldali.EffortComparisonForMBT.pdf Effort Comparison of Model-based Testing Scenarios (pdf)]
 
 [http://wiki.eclipse.org/EclipseTestingDay2010 Eclipse Testing Day 2010]
+
+
+= Software =
+
+== General libraries and tools ==
+ * [http://junit.org/ JUnit]
+ * [http://testng.org/doc/index.html TestNG]
+ * [http://fest.easytesting.org/wiki/pmwiki.php Fixtures for Easy Software Testing (FEST)]: library of tools to ease testing
+ * [http://unitils.sourceforge.net/ Unitils]: java libraries offering general testing methods
+ * [Mycila Testing Framework]: integration of JMock, Guice, Spring and others
+ * [http://www.opensourcetesting.org/ Open Source Software Testing Tools]  sorted by purpose and programming language and provided with short description
+
+
+== Mock frameworks ==
+ * [https://jmockit.dev.java.net/ JMockit Testing Toolkit]
+ * [http://code.google.com/p/powermock/ PowerMock]
+ * [http://code.google.com/p/mockito/ Mockito]
+ * [http://www.jmock.org/ JMock]
+ * [http://www.easymock.org/ EasyMock]
+ * [https://jeasytest.dev.java.net/ JEasyTest]: framework for testing applications that cannot be tested with the means of standard mocking frameworks
+
+
+== Eclipse plug-ins ==
+ * [http://moreunit.sourceforge.net/ MoreUnit]: marks class for that currently no JUnit tests exist
+ * [http://improvingworks.com/products/infinitest/ Infinitest]: triggers test execution when code base has changed
+ * [http://www.eclemma.org/ EclEmma]: visualize Code coverage
+ * [djUnit]: JUnit TestRunner with the custom classloader. It modifies class in loading to JVM, and runs tests using the modified class. Testing using Virtual Mock Objects is possible so.
+ * [http://lattu.sourceforge.net/ Lattu]: Framework for testing Eclipse RCP Applications
+
+
+== OSGi ==
+ * [http://sourceforge.net/projects/osgiunit/ OSGiUnit]: JUnit tests for OSGi applications
+ * [http://sourceforge.net/projects/osgi-bdt/ OSGi BDT]: tools to support building, deploying, and testing OSGi applications
+
+
+== GUI tests ==
+  * [http://swtbot.sourceforge.net/index.html SWTBot at Sourceforge] and at [http://www.eclipse.org/swtbot/ Eclipse]
+  * [http://code.google.com/p/swtbot4gef/ SWTBot4GEF]
+
+
+== Profiler ==
+ * [http://code.google.com/p/oktech-profiler/ OKTECH Profiler]
+ * [http://www.manageability.org/blog/stuff/open-source-profilers-for-java Open Source Profilers for Java]
+ * [http://www.khelekore.org/jmp/tijmp/index.shtml Tiger Java Memory Profiler (TIJmp)]
+ * [http://jamonapi.sourceforge.net/ Java Application Monitor (JAMon)]
+
+
+== Fixture tests ==
+ * [http://code.google.com/p/trinidad/ trinidad]: In-Process Test Runner for FitNesse Tests
+ * [http://simplium.sektor.se/ Simplium]: integration of JUnit and Selenium
+
+
+== Testing concurrent programs ==
+ * [http://www.alphaworks.ibm.com/tech/contest ConTest]
+ * [http://code.google.com/p/jconch/ JConch]
