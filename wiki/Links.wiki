@@ -1,4 +1,4 @@
-# links to articles, web-sites and so on
+#summary Links to articles, web-sites and so on.
 
 = Articles =
 
@@ -27,7 +27,7 @@
  * [http://www.ibm.com/developerworks/java/library/os-eclipse-rmock/index.html?ca=drs- Unit testing the Eclipse way]: Enhance jMock with the RMock testing framework for Java in the Eclipse IDE
  * [http://www.jmock.org/eclipse.html Mocking Classes in Eclipse Plug-in Tests]  
 
-=== EasyMock ===
+=== Easy Mock ===
  * [http://www.scribd.com/doc/7768659/Refcardz-28-JUnit-and-EasyMock JUnit and EasyMock]
  * [http://www.easymock.org/EasyMock3_0_ClassExtension_Documentation.html EasyMock Class Extension 3.0 Readme]
  * [http://blog.appenginefan.com/2009/04/using-easymocks-class-extensions.html Using EasyMock's class extensions]
