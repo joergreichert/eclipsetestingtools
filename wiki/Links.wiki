@@ -1,10 +1,13 @@
 #links to articles, web-sites and so on
 
 = General libraries and tools =
+ * [http://junit.org/ JUnit]
+ * [http://testng.org/doc/index.html TestNG]
  * [http://fest.easytesting.org/wiki/pmwiki.php Fixtures for Easy Software Testing (FEST)]: library of tools to ease testing
  * [http://unitils.sourceforge.net/ Unitils]: java libraries offering general testing methods
  * [Mycila Testing Framework]: integration of JMock, Guice, Spring and others
  * [http://www.opensourcetesting.org/ Open Source Software Testing Tools]  sorted by purpose and programming language and provided with short description
+
 
 = Mock frameworks =
  * [https://jmockit.dev.java.net/ JMockit Testing Toolkit]
@@ -14,6 +17,7 @@
  * [http://www.easymock.org/ EasyMock]
  * [https://jeasytest.dev.java.net/ JEasyTest]: framework for testing applications that cannot be tested with the means of standard mocking frameworks
 
+
 = Eclipse plug-ins =
  * [http://moreunit.sourceforge.net/ MoreUnit]: marks class for that currently no JUnit tests exist
  * [http://improvingworks.com/products/infinitest/ Infinitest]: triggers test execution when code base has changed
@@ -21,51 +25,123 @@
  * [djUnit]: JUnit TestRunner with the custom classloader. It modifies class in loading to JVM, and runs tests using the modified class. Testing using Virtual Mock Objects is possible so.
  * [http://lattu.sourceforge.net/ Lattu]: Framework for testing Eclipse RCP Applications
 
+
 = Profiler =
  * [http://code.google.com/p/oktech-profiler/ OKTECH Profiler]
  * [http://www.manageability.org/blog/stuff/open-source-profilers-for-java Open Source Profilers for Java]
  * [http://www.khelekore.org/jmp/tijmp/index.shtml Tiger Java Memory Profiler (TIJmp)]
  * [http://jamonapi.sourceforge.net/ Java Application Monitor (JAMon)]
 
+
 = Fixture tests =
  * [http://code.google.com/p/trinidad/ trinidad]: In-Process Test Runner for FitNesse Tests
  * [http://simplium.sektor.se/ Simplium]: integration of JUnit and Selenium
 
-= GUI tests
-  * [http://swtbot.sourceforge.net/index.html SWTBot]
+
+= GUI tests =
+  * [http://swtbot.sourceforge.net/index.html SWTBot at Sourceforge] and at [http://www.eclipse.org/swtbot/ Eclipse]
   * [http://code.google.com/p/swtbot4gef/ SWTBot4GEF]
+
 
 = OSGi =
  * [http://sourceforge.net/projects/osgiunit/ OSGiUnit]: JUnit tests for OSGi applications
  * [http://sourceforge.net/projects/osgi-bdt/ OSGi BDT]: tools to support building, deploying, and testing OSGi applications
 
+
 = Testing concurrent programs =
  * [http://www.alphaworks.ibm.com/tech/contest ConTest]
  * [http://code.google.com/p/jconch/ JConch]
 
+
 = Articles =
+
+== General ==
  * [http://feedxl.com/~gerard/?C=M;O=A Gerard Meszaros articles]
  * [http://xunitpatterns.com/ XUnit Test Patterns]
  * [http://thediscoblog.com/ The Disco Blog]: web log about testing
  * [http://www.infoq.com/news/2009/05/recommended-tdd-tutorials Recommended TDD tutorials]
  * [http://blog.jayway.com/category/testing/ Entries in the Jayway blog about testing]
- * articles about mocking and mocking tools
-  * [http://www.mockobjects.com/ Articles about using mock objects]
-  * [http://jeantessier.com/SoftwareEngineering/Mocking.html Mocking in Java: jMock vs. EasyMock]
-  * [http://code.google.com/p/jmockit/wiki/MockingToolkitComparisonMatrix Mocking Toolkit Comparison Matrix (from sight of JMockit)]
-  * Mockito
-   * [http://mockito.googlecode.com/svn/branches/1.5/javadoc/org/mockito/Mockito.html API use]
-   * [http://www.slideshare.net/rapaul/mockito-presentation Mocking in Java with Mockito]
-  * Powermock
-   * [http://code.google.com/p/powermock/wiki/BypassEncapsulation BypassEncapsulation]
-   * [http://blog.jayway.com/tag/powermock/ Entries in the Jayway blog about PowerMock]
-   * [http://powermock.googlecode.com/svn/docs/powermock-1.3/apidocs/index.html JavaDocs]
-   * [http://code.google.com/p/powermock/wiki/MockitoUsage13 Using PowerMock with Mockito]
-  * [http://jmockit.googlecode.com/svn/trunk/www/tutorial.html The JMockit Testing Toolkit Tutorial]
-  * [http://www.ibm.com/developerworks/java/library/os-eclipse-rmock/index.html?ca=drs- Unit testing the Eclipse way]: Enhance jMock with the RMock testing framework for Java in the Eclipse IDE
  * [http://www.skill-guru.com/blog/2010/03/25/junit-tutorial-with-examples/ Junit Tutorial with examples]
  * [http://www.junit-buch.de/doc/artikel.html JUnit Profi Tipps] (only in German)
  * [http://entwickler.com/itr/online_artikel/psecom,p,,_psframe,,linkobject,print_,nocontainer,1_,id,365,nodeid,11.html Wie man sich (test-)bettet, so liegt man] (only German)
  * [http://www.testingexperience.com/# Testing Experience]: online magazine for professional testers
+ * [http://today.java.net/pub/a/today/2003/08/06/multithreadedTests.html Multithreaded Tests with JUnit]
+ * [http://www.javaworld.com/cgi-bin/mailto/x_java.cgi?pagetosend=/export/home/httpd/javaworld/javaworld/jw-03-2009/jw-03-good-unit-tests-1.html&pagename=/javaworld/jw-03-2009/jw-03-good-unit-tests-1.html&pageurl=http://www.javaworld.com/javaworld/jw-03-2009/jw-03-good-unit-tests-1.html&site=jw_core Writing good unit tests, Part 1: Follow your GUTs]
+ * [http://www.jroller.com/sebastianKuebeck/entry/pricilpes_of_good_tests Properties of Good Tests]
+ * [http://www.ordix.de/ORDIXNews/3_2007/Java_J2EE_JEE/junit4.html Testen mit JUnit 4] (in German only)
+ * [http://javaprepare.blogspot.com/2008/06/junit-5.html JUnit 5]
+ * [http://blog.stevensanderson.com/2009/08/24/writing-great-unit-tests-best-and-worst-practises/ Writing Great Unit Tests: Best and Worst Practices]
+ * [http://mguillem.wordpress.com/category/test-automation/ Blog entries from Marc Guillemot about test automation]
+
+== Articles about mocking and mocking tools ==
+ * [http://www.mockobjects.com/ Articles about using mock objects]
+
+=== JMock ===
+ * [http://www.ibm.com/developerworks/java/library/os-eclipse-rmock/index.html?ca=drs- Unit testing the Eclipse way]: Enhance jMock with the RMock testing framework for Java in the Eclipse IDE
+ * [http://www.jmock.org/eclipse.html Mocking Classes in Eclipse Plug-in Tests]  
+
+=== EasyMock ===
+ * [http://www.scribd.com/doc/7768659/Refcardz-28-JUnit-and-EasyMock JUnit and EasyMock]
+ * [http://www.easymock.org/EasyMock3_0_ClassExtension_Documentation.html EasyMock Class Extension 3.0 Readme]
+ * [http://blog.appenginefan.com/2009/04/using-easymocks-class-extensions.html Using EasyMock's class extensions]
+
+=== Mockito ===
+ * [http://mockito.googlecode.com/svn/branches/1.5/javadoc/org/mockito/Mockito.html API use]
+ * [http://www.slideshare.net/rapaul/mockito-presentation Mocking in Java with Mockito]
+
+=== Powermock ===
+ * [http://code.google.com/p/powermock/wiki/BypassEncapsulation BypassEncapsulation]
+ * [http://blog.jayway.com/tag/powermock/ Entries in the Jayway blog about PowerMock]
+ * [http://powermock.googlecode.com/svn/docs/powermock-1.3/apidocs/index.html JavaDocs]
+ * [http://code.google.com/p/powermock/wiki/MockitoUsage13 Using PowerMock with Mockito]
+ * [http://blog.griddynamics.com/2010/03/mocking-with-mockito-and-powermock.html Mocking with Mockito and Powermock]
+ * [http://blogs.itemis.de/feltes/2009/10/06/mocking-framework-classes-in-signed-jars/comment-page-1/ Mocking Framework Classes in Signed JARs]
+
+=== JMockit ===
+ * [http://jmockit.googlecode.com/svn/trunk/www/tutorial.html The JMockit Testing Toolkit Tutorial]
+
+=== Comparision ===
+ * [http://jeantessier.com/SoftwareEngineering/Mocking.html Mocking in Java: jMock vs. EasyMock]
+ * [http://code.google.com/p/jmockit/wiki/MockingToolkitComparisonMatrix Mocking Toolkit Comparison Matrix (from sight of JMockit)]
+ * [http://code.google.com/p/mockito/wiki/MockitoVSEasyMock Mockito vs EasyMock (from sight of Mockito)]
+
+== Eclipse, RCP and OSGi ==
+ * [http://dev.eclipse.org/viewcvs/index.cgi/org.eclipse.test/testframework.html?view=co The Eclipse Test Framework]
+ * [http://java.dzone.com/articles/osgi-junit-test-extender-using?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+javalobby%2Ffrontpage+%28Javalobby+%2F+Java+Zone%29 OSGi : Junit Test Extender Using Fragment and BundleTracker]
+ * [http://eclipse.dzone.com/articles/configuring-rcp-applications Configuring RCP Applications With Pax ConfMan] 
+ * [http://rcpquickstart.com/2007/08/06/running-automated-tests-with-pde-build/ Running Automated Tests with PDE Build]
+ * [http://www.eclipse.org/articles/article.php?file=Article-PDEJUnitAntAutomation/index.html Automating Eclipse PDE Unit Tests using Ant]
+ * [http://wiki.eclipse.org/index.php?title=Automated_Testing Eclipse Automated Testing]
+ * [http://wiki.eclipse.org/Eclipse/Testing/JUnit4_Changes#Custom_subclasses_of_junit.framework.TestSuite Eclipse/Testing/JUnit4 Changes]
+ * [http://rcpquickstart.com/2007/06/20/unit-testing-plug-ins-with-fragments/ Testing Plug-ins with Fragments]
+ * [http://www.oio.de/eclipse-rcp-test-artikel.htm Testen von Eclipse RCP-Anwendungen] (only in German)
+ * [http://rcpquickstart.com/2008/06/12/running-unit-tests-for-rcp-and-osgi-applications/ Running Unit Tests for RCP and OSGi Applications]
+ * [http://www.cct.lsu.edu/~rguidry/ecl31docs/api/org/eclipse/pde/internal/junit/runtime/RemotePluginTestRunner.html RemotePluginTestRunner]
+ * [http://wiki.eclipse.org/FAQ_What_is_a_PDE_JUnit_test%3F FAQ: What is a PDE JUnit test?]
+ * [http://groups.csail.mit.edu/pag/continuoustesting/what.html What is Continuous Testing?]
+ * [http://intellectualcramps.blogspot.com/2009/04/unit-testing-pluginxml-files.html Unit Testing plugin.xml Files]
+ * [http://wiki.eclipse.org/The_Three_Test_Suite_Modes The Three Test Suite Modes]
+ * [http://live.eclipse.org/node/700 Test Driven Development Best Practices for Eclipse RCP]
+ * [http://splitshade.wordpress.com/2009/05/19/rcp-ui-testing-mal-ganz-ohne-framework/ RCP UI Testing mal ganz ohne Framework] (in German only)
+ * [http://www.eclipse.org/tptp/test/documents/userguides/Intro-Auto-GUI-4-4-0.html Eclipse Test and Performance Tools Platform Project]
+ * [http://www.eclipse.org/articles/Article-PDE-Automation/automation.html Build and Test Automation for plug-ins and features]
+
+== SWT Bot ==
+ * [http://blog.juliencarette.com/post/2009/02/07/Tester-une-application-SWT-avec-SwtBot Tester une application SWT avec SwtBot] (in French only)
+ * [http://download.eclipse.org/technology/swtbot/docs/videos/beginners/SWTBotHeadlessTestingForNovices/ SWTBot Headless Testing For Novices]
+ * [http://it-republik.de/jaxenter/artikel/SWTBot-fuer-automatisierte-SWT--und-RCP-Tests-2275.html?print=1 SWTBot für automatisierte SWT- und RCP-Tests] (in German only)
+ * [http://my-two-cents.info/software/swtbot-for-eclipse-ui-testing/ SWTBot for Eclipse UI Testing]
+ * [http://greensopinion.blogspot.com/2008/09/eclipse-gui-testing-is-viable-with.html Eclipse GUI Testing Is Viable With SWTBot]
+ * [http://www.ralfebert.de/articles/swtbot/ Eclipse RCP Anwendungen testen mit SWTBot] (in German only)
+
+== Model based testing ==
+ * [http://en.wikipedia.org/wiki/Model-based_testing Model-based testing (article in English Wikipedia)]
+ * [http://a-most.iese.fraunhofer.de/10/ 6th Workshop on Advances in Model Based Testing (A-MOST) 2010] (the slides can be found [http://a-most.iese.fraunhofer.de/10/#program here])
+ * [http://www.model-based-testing.de/quombat10/ Quality of Model-Based Testing (QuoMBaT) 2010] (the slides can be found [http://www.model-based-testing.de/quombat10/program.html here])
+ * [http://www4.informatik.tu-muenchen.de/publ/papers/Rum93c.pdf Model-based Testing of Object-Oriented Systems (pdf)]
+ * [http://home.mit.bme.hu/~micskeiz/pages/modelbased_testing.html Model-based testing (MBT)]: some article links and a good overview of existing MBT tools and projects
+ * [http://www.research.ibm.com/haifa/dept/services/papers/HVC06_survey-prelim.pdf Choosing a Test Modeling Language: a Survey (pdf)]
+ * [http://www.cs.uni-paderborn.de/fachgebiete/fg-engels/forschung/themen/modellbasiertes-testen.html Modellbasiertes Testen (MBT) an der Universität Paderborn]
+ * [http://www.model-based-testing.de/quombat10/data/100406.1200-1230.quombat.Guldali.EffortComparisonForMBT.pdf Effort Comparison of Model-based Testing Scenarios (pdf)]
 
 [http://wiki.eclipse.org/EclipseTestingDay2010 Eclipse Testing Day 2010]
