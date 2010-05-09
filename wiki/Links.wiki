@@ -1,0 +1,27 @@
+#links to articles, web-sites and so on
+
+ * general libraries and tools
+  * [http://fest.easytesting.org/wiki/pmwiki.php Fixtures for Easy Software Testing (FEST): library of tools to ease testing]
+  * [http://unitils.sourceforge.net/ Unitils: java libraries offering general testing methods]
+  * [Mycila Testing Framework: integration of JMock, Guice, Spring and others]
+ * mock frameworks
+  * [https://jmockit.dev.java.net/ JMockit Testing Toolkit]
+  * [http://code.google.com/p/powermock/ PowerMock]
+  * [http://code.google.com/p/mockito/ Mockito]
+ * Eclipse plugins
+  * [http://moreunit.sourceforge.net/ MoreUnit: marks class for that currently no JUnit tests exist]
+  * [http://improvingworks.com/products/infinitest/ Infinitest: triggers test execution when code base has changed]
+ * profiler
+  * [http://code.google.com/p/oktech-profiler/ OKTECH Profiler]
+ * fixture tests
+  * [http://code.google.com/p/trinidad/ trinidad: In-Process Test Runner for FitNesse Tests]
+  * [http://simplium.sektor.se/ Simplium: integration of JUnit and Selenium]
+ * GUI tests
+  * [http://code.google.com/p/swtbot4gef/ SWTBot4GEF]
+ * testing concurrent programs
+  * [http://www.alphaworks.ibm.com/tech/contest ConTest]
+  * [http://code.google.com/p/jconch/ JConch: library to ease testing threads]
+ * articles
+  * [http://feedxl.com/~gerard/?C=M;O=A Gerard Meszaros articles]
+  * [http://www.infoq.com/news/2009/05/recommended-tdd-tutorials Recommended TDD tutorials]
+  * [http://www.junit-buch.de/doc/artikel.html JUnit Profi Tipps (only in German)]
