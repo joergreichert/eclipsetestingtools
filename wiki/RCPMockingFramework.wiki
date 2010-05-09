@@ -1,0 +1,6 @@
+#summary Framework to ease mocking eclipse plug-ins.
+
+= Motivation =
+
+Currently existing mocking frameworks like [http://www.easymock.org/ EasyMock], [http://www.jmock.org/ JMock], [https://jmockit.dev.java.net/ JMockit], [http://mockito.org/ Mockito] and [http://powermock.org/ PowerMock] have some short comings when testing Eclipse Plug-ins, RCP applications and OSGi applications (e.g. concerning class loading and threading issues). The framework here to be developed should address these things.
+
