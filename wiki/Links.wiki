@@ -1,27 +1,71 @@
 #links to articles, web-sites and so on
 
- * general libraries and tools
-  * [http://fest.easytesting.org/wiki/pmwiki.php Fixtures for Easy Software Testing (FEST): library of tools to ease testing]
-  * [http://unitils.sourceforge.net/ Unitils: java libraries offering general testing methods]
-  * [Mycila Testing Framework: integration of JMock, Guice, Spring and others]
- * mock frameworks
-  * [https://jmockit.dev.java.net/ JMockit Testing Toolkit]
-  * [http://code.google.com/p/powermock/ PowerMock]
-  * [http://code.google.com/p/mockito/ Mockito]
- * Eclipse plugins
-  * [http://moreunit.sourceforge.net/ MoreUnit: marks class for that currently no JUnit tests exist]
-  * [http://improvingworks.com/products/infinitest/ Infinitest: triggers test execution when code base has changed]
- * profiler
-  * [http://code.google.com/p/oktech-profiler/ OKTECH Profiler]
- * fixture tests
-  * [http://code.google.com/p/trinidad/ trinidad: In-Process Test Runner for FitNesse Tests]
-  * [http://simplium.sektor.se/ Simplium: integration of JUnit and Selenium]
- * GUI tests
+= General libraries and tools =
+ * [http://fest.easytesting.org/wiki/pmwiki.php Fixtures for Easy Software Testing (FEST)]: library of tools to ease testing
+ * [http://unitils.sourceforge.net/ Unitils]: java libraries offering general testing methods
+ * [Mycila Testing Framework]: integration of JMock, Guice, Spring and others
+ * [http://www.opensourcetesting.org/ Open Source Software Testing Tools]  sorted by purpose and programming language and provided with short description
+
+= Mock frameworks =
+ * [https://jmockit.dev.java.net/ JMockit Testing Toolkit]
+ * [http://code.google.com/p/powermock/ PowerMock]
+ * [http://code.google.com/p/mockito/ Mockito]
+ * [http://www.jmock.org/ JMock]
+ * [http://www.easymock.org/ EasyMock]
+ * [https://jeasytest.dev.java.net/ JEasyTest]: framework for testing applications that cannot be tested with the means of standard mocking frameworks
+
+= Eclipse plug-ins =
+ * [http://moreunit.sourceforge.net/ MoreUnit]: marks class for that currently no JUnit tests exist
+ * [http://improvingworks.com/products/infinitest/ Infinitest]: triggers test execution when code base has changed
+ * [http://www.eclemma.org/ EclEmma]: visualize Code coverage
+ * [djUnit]: JUnit TestRunner with the custom classloader. It modifies class in loading to JVM, and runs tests using the modified class. Testing using Virtual Mock Objects is possible so.
+ * [http://lattu.sourceforge.net/ Lattu]: Framework for testing Eclipse RCP Applications
+
+= Profiler =
+ * [http://code.google.com/p/oktech-profiler/ OKTECH Profiler]
+ * [http://www.manageability.org/blog/stuff/open-source-profilers-for-java Open Source Profilers for Java]
+ * [http://www.khelekore.org/jmp/tijmp/index.shtml Tiger Java Memory Profiler (TIJmp)]
+ * [http://jamonapi.sourceforge.net/ Java Application Monitor (JAMon)]
+
+= Fixture tests =
+ * [http://code.google.com/p/trinidad/ trinidad]: In-Process Test Runner for FitNesse Tests
+ * [http://simplium.sektor.se/ Simplium]: integration of JUnit and Selenium
+
+= GUI tests
+  * [http://swtbot.sourceforge.net/index.html SWTBot]
   * [http://code.google.com/p/swtbot4gef/ SWTBot4GEF]
- * testing concurrent programs
-  * [http://www.alphaworks.ibm.com/tech/contest ConTest]
-  * [http://code.google.com/p/jconch/ JConch: library to ease testing threads]
- * articles
-  * [http://feedxl.com/~gerard/?C=M;O=A Gerard Meszaros articles]
-  * [http://www.infoq.com/news/2009/05/recommended-tdd-tutorials Recommended TDD tutorials]
-  * [http://www.junit-buch.de/doc/artikel.html JUnit Profi Tipps (only in German)]
+
+= OSGi =
+ * [http://sourceforge.net/projects/osgiunit/ OSGiUnit]: JUnit tests for OSGi applications
+ * [http://sourceforge.net/projects/osgi-bdt/ OSGi BDT]: tools to support building, deploying, and testing OSGi applications
+
+= Testing concurrent programs =
+ * [http://www.alphaworks.ibm.com/tech/contest ConTest]
+ * [http://code.google.com/p/jconch/ JConch]
+
+= Articles =
+ * [http://feedxl.com/~gerard/?C=M;O=A Gerard Meszaros articles]
+ * [http://xunitpatterns.com/ XUnit Test Patterns]
+ * [http://thediscoblog.com/ The Disco Blog]: web log about testing
+ * [http://www.infoq.com/news/2009/05/recommended-tdd-tutorials Recommended TDD tutorials]
+ * [http://blog.jayway.com/category/testing/ Entries in the Jayway blog about testing]
+ * articles about mocking and mocking tools
+  * [http://www.mockobjects.com/ Articles about using mock objects]
+  * [http://jeantessier.com/SoftwareEngineering/Mocking.html Mocking in Java: jMock vs. EasyMock]
+  * [http://code.google.com/p/jmockit/wiki/MockingToolkitComparisonMatrix Mocking Toolkit Comparison Matrix (from sight of JMockit)]
+  * Mockito
+   * [http://mockito.googlecode.com/svn/branches/1.5/javadoc/org/mockito/Mockito.html API use]
+   * [http://www.slideshare.net/rapaul/mockito-presentation Mocking in Java with Mockito]
+  * Powermock
+   * [http://code.google.com/p/powermock/wiki/BypassEncapsulation BypassEncapsulation]
+   * [http://blog.jayway.com/tag/powermock/ Entries in the Jayway blog about PowerMock]
+   * [http://powermock.googlecode.com/svn/docs/powermock-1.3/apidocs/index.html JavaDocs]
+   * [http://code.google.com/p/powermock/wiki/MockitoUsage13 Using PowerMock with Mockito]
+  * [http://jmockit.googlecode.com/svn/trunk/www/tutorial.html The JMockit Testing Toolkit Tutorial]
+  * [http://www.ibm.com/developerworks/java/library/os-eclipse-rmock/index.html?ca=drs- Unit testing the Eclipse way]: Enhance jMock with the RMock testing framework for Java in the Eclipse IDE
+ * [http://www.skill-guru.com/blog/2010/03/25/junit-tutorial-with-examples/ Junit Tutorial with examples]
+ * [http://www.junit-buch.de/doc/artikel.html JUnit Profi Tipps] (only in German)
+ * [http://entwickler.com/itr/online_artikel/psecom,p,,_psframe,,linkobject,print_,nocontainer,1_,id,365,nodeid,11.html Wie man sich (test-)bettet, so liegt man] (only German)
+ * [http://www.testingexperience.com/# Testing Experience]: online magazine for professional testers
+
+[http://wiki.eclipse.org/EclipseTestingDay2010 Eclipse Testing Day 2010]
