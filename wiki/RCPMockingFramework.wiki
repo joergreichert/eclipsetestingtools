@@ -4,3 +4,16 @@
 
 Currently existing mocking frameworks like [http://www.easymock.org/ EasyMock], [http://www.jmock.org/ JMock], [https://jmockit.dev.java.net/ JMockit], [http://mockito.org/ Mockito] and [http://powermock.org/ PowerMock] have some short comings when testing Eclipse Plug-ins, RCP applications and OSGi applications (e.g. concerning class loading and threading issues). The framework here to be developed should address these things.
 
+= The issue with the cglib classloader =
+
+The problem with the cglib classloader has already been solved.
+
+== JMock ==
+ * [http://jira.codehaus.org/browse/JMOCK-124 Can't mock classes in Eclipse JUnit Plugin-Tests]
+ * [http://www.jmock.org/eclipse.html jMock - Mocking Classes in Eclipse Plug-in Tests]
+
+== Mockito ==
+ * [http://code.google.com/p/mockito/issues/detail?id=11 Mockito does not work in eclipse plugins]
+
+== EasyMock ==
+ * [http://sourceforge.net/tracker/?func=detail&aid=2994002&group_id=82958&atid=567837 CodeGenerationException mocking a class in Eclipse plugin]
