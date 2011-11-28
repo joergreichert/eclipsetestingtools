@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JUnit 4 Runner Tests
+Bundle-SymbolicName: de.abg.jreichert.junit4runner.example.test;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: Joerg Reichert
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.7.0",
+ org.eclipse.ui;bundle-version="3.7.0",
+ org.junit4;bundle-version="4.8.1",
+ org.eclipse.swtbot.go;bundle-version="2.0.5",
+ org.eclipse.jdt.core;bundle-version="3.7.0",
+ org.eclipse.core.resources;bundle-version="3.7.100",
+ org.eclipse.jdt.launching;bundle-version="3.6.0",
+ de.abg.jreichert.junit4runner;bundle-version="0.0.1",
+ org.eclipse.jdt.junit4.runtime;bundle-version="1.1.200",
+ org.eclipse.pde.core;bundle-version="3.7.1",
+ org.eclipse.pde.ui;bundle-version="3.6.100"

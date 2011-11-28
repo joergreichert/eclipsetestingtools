@@ -14,6 +14,7 @@
 		<eclipse-site>http://download.eclipse.org/releases/${platform-version-name}
 		</eclipse-site>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.test.failure.ignore>true</maven.test.failure.ignore>
 	</properties>	
 
 	<prerequisites>
@@ -292,6 +293,7 @@
 				<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
 				<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 				<sonar.jacoco.reportPath>${jacoco.destFile}</sonar.jacoco.reportPath>
+				<sonar.jacoco.itReportPath>${jacoco.destFile}</sonar.jacoco.itReportPath>
 
 				<sonar.jdbc.url>jdbc:mysql://localhost:3306/sonar?useUnicode=true&amp;characterEncoding=utf8</sonar.jdbc.url>
 				<sonar.jdbc.driverClassName>com.mysql.jdbc.Driver</sonar.jdbc.driverClassName>
@@ -311,7 +313,6 @@
 							<includes>
 								<include>**/*Test.java</include>
 							</includes>
-							<!-- Kill test JVM if tests take more than 10 minutes (600 seconds) to finish -->
 							<forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
 						</configuration>
 					</plugin>
@@ -324,38 +325,9 @@
 								<goals>
 									<goal>prepare-agent</goal>
 								</goals>
-								<configuration>
-									<!-- Where to put jacoco coverage report -->
-									<!--destFile>${sonar.jacoco.reportPath}</destFile-->
-								</configuration>
 							</execution>
 						</executions>
-					</plugin>				
-					<!--plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.5.4.201111111111</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-            <configuration>
-              <destFile>${sonar.jacoco.reportPath}</destFile>
-            </configuration>
-          </execution>
-		  <execution>
-            <id>report</id>
-            <phase>prepare-package</phase>
-			<configuration>
-				<dataFile>${sonar.jacoco.reportPath}</dataFile>
-			</configuration>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin-->
+					</plugin>
 				</plugins>
 			</build>
 		</profile>		
