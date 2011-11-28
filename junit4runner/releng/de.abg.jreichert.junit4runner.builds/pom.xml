@@ -15,7 +15,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-		<module>../../releng/de.abg.jreichert.eclipsetestingtools.parent</module>
+		<module>../../../releng/de.abg.jreichert.eclipsetestingtools.parent</module>
 		<module>../../releng/de.abg.jreichert.junit4runner.parent</module>
 		<module>../../implementation/de.abg.jreichert.junit4runner</module>
 		<module>../../implementation/de.abg.jreichert.junit4runner.feature</module>
@@ -23,5 +23,6 @@
 		<module>../../example/de.abg.jreichert.junit4runner.example</module>
 		<module>../../example/de.abg.jreichert.junit4runner.example.junit3tests</module>
 		<module>../../example/de.abg.jreichert.junit4runner.example.junit4tests</module>
+		<module>../../example/de.abg.jreichert.junit4runner.example.test</module>
 	</modules>	
 </project>
