@@ -342,4 +342,25 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<distributionManagement>
+		<repository>
+			<id>cloudbees-release</id>
+			<name>Cloudbees Private Repository</name>
+			<url>dav:https://repository-joergreichert.forge.cloudbees.com/release</url>
+		</repository>
+		<snapshotRepository>
+			<id>cloudbees-snapshot</id>
+			<name>Cloudbees Private Repository</name>
+			<url>dav:https://repository-joergreichert.forge.cloudbees.com/snapshot</url>
+		</snapshotRepository>
+	</distributionManagement>	
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav-jackrabbit</artifactId>
+				<version>1.0-beta-7</version>
+			</extension>
+		</extensions>
+	</build> 
 </project>
