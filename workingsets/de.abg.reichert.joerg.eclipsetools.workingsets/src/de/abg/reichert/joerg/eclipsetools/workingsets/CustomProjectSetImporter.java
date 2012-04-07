@@ -21,8 +21,10 @@ import de.abg.reichert.joerg.eclipsetools.workingsets.internal.XMLMementoHelper;
 public class CustomProjectSetImporter {
 	private XMLMementoHelper xmlMementoHelper;
 	private WorkingSetImportHelper importHelper;
+	private Shell shell; 
 
-	public CustomProjectSetImporter() {
+	public CustomProjectSetImporter(Shell shell) {
+		this.shell = shell;
 	}
 
 	protected XMLMementoHelper getXMLMementoHelper() {
@@ -34,9 +36,13 @@ public class CustomProjectSetImporter {
 	
 	protected WorkingSetImportHelper getWorkingSetImportHelper() {
 		if (importHelper == null) {
-			importHelper = new WorkingSetImportHelper();
+			importHelper = new WorkingSetImportHelper(getShell());
 		}
 		return importHelper;
+	}
+
+	protected Shell getShell() {
+		return shell;
 	}
 
 	public IProject[] importProjectSetFromString(String psfContents,

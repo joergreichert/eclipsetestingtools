@@ -15,10 +15,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.team.internal.ui.IPreferenceIds;
-import org.eclipse.team.internal.ui.ProjectSetImporter;
 import org.eclipse.team.internal.ui.TeamUIMessages;
 import org.eclipse.team.internal.ui.TeamUIPlugin;
-import org.eclipse.team.internal.ui.wizards.ImportProjectSetOperation;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkingSet;
@@ -41,10 +39,10 @@ public class CustomImportProjectSetAction extends ActionDelegate implements IObj
 					while (iterator.hasNext()) {
 						IFile file = (IFile) iterator.next();
 						if (isRunInBackgroundPreferenceOn()) {
-							CustomImportProjectSetOperation op = getImportProjectSetOperation(file.getLocation().toString(), getProjectSetImporter());
+							CustomImportProjectSetOperation op = getImportProjectSetOperation(file.getLocation().toString(), getProjectSetImporter(shell), shell);
 							op.run();
 						} else { 
-							getProjectSetImporter().importProjectSet(file.getLocation().toString(), shell, monitor);
+							getProjectSetImporter(shell).importProjectSet(file.getLocation().toString(), shell, monitor);
 						}
 					}
 				}
@@ -60,17 +58,17 @@ public class CustomImportProjectSetAction extends ActionDelegate implements IObj
 		}
 	}
 	
-	protected CustomProjectSetImporter getProjectSetImporter() {
+	protected CustomProjectSetImporter getProjectSetImporter(Shell shell) {
 		if(customProjectSetImporter == null) {
-			customProjectSetImporter = new CustomProjectSetImporter();
+			customProjectSetImporter = new CustomProjectSetImporter(shell);
 		}
 		return customProjectSetImporter;
 	}
 	
 	private CustomImportProjectSetOperation getImportProjectSetOperation(String location,
-			CustomProjectSetImporter projectSetImporter) {
+			CustomProjectSetImporter projectSetImporter, Shell shell) {
 		if(customImportProjectSetOperation == null) {
-			customImportProjectSetOperation = new CustomImportProjectSetOperation(null, location, new IWorkingSet[0], getProjectSetImporter());
+			customImportProjectSetOperation = new CustomImportProjectSetOperation(null, location, new IWorkingSet[0], getProjectSetImporter(shell));
 		}
 		return customImportProjectSetOperation;
 	}

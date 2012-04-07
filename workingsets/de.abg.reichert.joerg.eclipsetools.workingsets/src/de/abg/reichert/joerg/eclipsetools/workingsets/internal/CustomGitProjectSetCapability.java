@@ -6,11 +6,9 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -24,6 +22,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.egit.core.Activator;
 import org.eclipse.egit.core.CoreText;
 import org.eclipse.egit.core.op.CloneOperation;
@@ -34,14 +33,24 @@ import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.StoredConfig;
 import org.eclipse.jgit.transport.URIish;
 import org.eclipse.osgi.util.NLS;
+import org.eclipse.swt.widgets.DirectoryDialog;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.team.core.ProjectSetCapability;
 import org.eclipse.team.core.ProjectSetSerializationContext;
 import org.eclipse.team.core.TeamException;
+import org.eclipse.ui.PlatformUI;
 
 public class CustomGitProjectSetCapability extends ProjectSetCapability {
 
 	private static final String SEPARATOR = ","; //$NON-NLS-1$
 	private static final String VERSION = "1.0"; //$NON-NLS-1$
+
+	private Shell shell;
+
+	public CustomGitProjectSetCapability(Shell shell) {
+		this.shell = shell;
+	}
 
 	private static final class ProjectReferenceComparator implements
 			Comparator<ProjectReference>, Serializable {
@@ -159,12 +168,13 @@ public class CustomGitProjectSetCapability extends ProjectSetCapability {
 				try {
 					final IPath workDir = getWorkingDir(gitUrl, branch,
 							branches.keySet());
-					handleExistingWorkingDirectory(gitUrl, projects, workDir);
+					boolean exists = isExistingWorkingDirectory(gitUrl,
+							projects, workDir);
 
 					int timeout = 60;
 					String refName = Constants.R_HEADS + branch;
-					
-					clone(monitor, gitUrl, workDir, timeout, refName);
+
+					clone(monitor, gitUrl, workDir, timeout, refName, exists);
 
 					final File repositoryPath = getRepositoryPath(workDir);
 
@@ -173,7 +183,7 @@ public class CustomGitProjectSetCapability extends ProjectSetCapability {
 
 					// import projects from the current repository to workspace
 					importProjects(workDir, projects, importedProjects,
-							repositoryPath, monitor);
+							repositoryPath, monitor, exists);
 				} catch (final InvocationTargetException e) {
 					throw TeamException.asTeamException(e);
 				} catch (final CoreException e) {
@@ -190,30 +200,20 @@ public class CustomGitProjectSetCapability extends ProjectSetCapability {
 	}
 
 	protected File getRepositoryPath(final IPath workDir) {
-		return workDir.append(
-				Constants.DOT_GIT_EXT).toFile();
+		return workDir.append(Constants.DOT_GIT_EXT).toFile();
 	}
 
-	protected void handleExistingWorkingDirectory(final URIish gitUrl,
+	protected boolean isExistingWorkingDirectory(final URIish gitUrl,
 			final Set<ProjectReference> projects, final IPath workDir)
 			throws TeamException {
-		if (workDir.toFile().exists()) {
-			final Collection<String> projectNames = new LinkedList<String>();
-			for (final ProjectReference projectReference : projects)
-				projectNames.add(projectReference.projectDir);
-			throw new TeamException(
-					NLS.bind(
-							CoreText.GitProjectSetCapability_CloneToExistingDirectory,
-							new Object[] { workDir, projectNames,
-									gitUrl }));
-		}
+		return workDir.toFile().exists();
 	}
 
 	protected void importProjects(final IPath workDir,
 			final Set<ProjectReference> projects,
 			final ArrayList<IProject> importedProjects,
-			final File repositoryPath, final IProgressMonitor monitor)
-			throws CoreException {
+			final File repositoryPath, final IProgressMonitor monitor,
+			boolean exists) throws CoreException {
 		final IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		final IWorkspaceRoot root = workspace.getRoot();
 		for (final ProjectReference projectToImport : projects) {
@@ -223,7 +223,7 @@ public class CustomGitProjectSetCapability extends ProjectSetCapability {
 							.append(IProjectDescription.DESCRIPTION_FILE_NAME));
 			final IProject project = root.getProject(projectDescription
 					.getName());
-			createProject(monitor, projectDescription, project);
+			createProject(monitor, projectDescription, project, exists);
 			importedProjects.add(project);
 
 			project.open(monitor);
@@ -240,20 +240,21 @@ public class CustomGitProjectSetCapability extends ProjectSetCapability {
 	}
 
 	protected void createProject(final IProgressMonitor monitor,
-			final IProjectDescription projectDescription, final IProject project)
-			throws CoreException {
-		// TODO only create if not exists yet resp. import existing from working directory as reference
+			final IProjectDescription projectDescription,
+			final IProject project, boolean exists) throws CoreException {
 		project.create(projectDescription, monitor);
 	}
 
 	protected void clone(final IProgressMonitor monitor, final URIish gitUrl,
-			final IPath workDir, int timeout, String refName)
+			final IPath workDir, int timeout, String refName, boolean exists)
 			throws InvocationTargetException, InterruptedException {
 		// TODO only clone if not exists
-		final CloneOperation cloneOperation = new CloneOperation(gitUrl, true,
-				null, workDir.toFile(), refName, Constants.DEFAULT_REMOTE_NAME,
-				timeout);
-		cloneOperation.run(monitor);
+		if (!exists) {
+			final CloneOperation cloneOperation = new CloneOperation(gitUrl,
+					true, null, workDir.toFile(), refName,
+					Constants.DEFAULT_REMOTE_NAME, timeout);
+			cloneOperation.run(monitor);
+		}
 	}
 
 	private void getRepositories(final String[] referenceStrings,
@@ -296,11 +297,30 @@ public class CustomGitProjectSetCapability extends ProjectSetCapability {
 	 *            all branches which should be checked out for this gitUrl
 	 * @return the directory where the project should be checked out
 	 */
-	private static IPath getWorkingDir(URIish gitUrl, String branch,
+
+	private String absPath = null;
+
+	private IPath getWorkingDir(URIish gitUrl, String branch,
 			Set<String> allBranches) {
-		// TODO select working directory manually
-		final IPath workspaceLocation = ResourcesPlugin.getWorkspace()
-				.getRoot().getRawLocation();
+		absPath = null;
+		if (getShell() != null) {
+			getShell().getDisplay().syncExec(new Runnable() {
+				@Override
+				public void run() {
+					DirectoryDialog directoryDialog = new DirectoryDialog(
+							Display.getDefault().getActiveShell());
+					absPath = directoryDialog.open();
+				}
+			});
+
+		}
+		final IPath workspaceLocation;
+		if (absPath != null && new File(absPath).exists()) {
+			workspaceLocation = Path.fromOSString(absPath);
+		} else {
+			workspaceLocation = ResourcesPlugin.getWorkspace().getRoot()
+					.getRawLocation();
+		}
 		final String humanishName = gitUrl.getHumanishName();
 		String extendedName;
 		if (allBranches.size() == 1 || branch.equals(Constants.MASTER))
@@ -309,6 +329,10 @@ public class CustomGitProjectSetCapability extends ProjectSetCapability {
 			extendedName = humanishName + "_" + branch; //$NON-NLS-1$
 		final IPath workDir = workspaceLocation.append(extendedName);
 		return workDir;
+	}
+
+	protected Shell getShell() {
+		return shell;
 	}
 
 }

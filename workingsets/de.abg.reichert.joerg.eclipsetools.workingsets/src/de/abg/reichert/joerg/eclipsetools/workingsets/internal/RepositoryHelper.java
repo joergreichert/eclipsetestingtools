@@ -8,6 +8,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.egit.core.GitProjectSetCapability;
 import org.eclipse.osgi.util.NLS;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.team.core.ProjectSetCapability;
 import org.eclipse.team.core.RepositoryProviderType;
 import org.eclipse.team.core.TeamException;
@@ -20,13 +21,18 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.PlatformUI;
 
 public class RepositoryHelper {
+	private Shell shell;
+
+	public RepositoryHelper(Shell shell) {
+		this.shell = shell;
+	}
 
 	IProject[] addToWorkspace(IProgressMonitor monitor,
 			UIProjectSetSerializationContext context,
 			ArrayList referenceStrings, ProjectSetCapability serializer)
 			throws TeamException {
 		if(serializer instanceof org.eclipse.egit.core.GitProjectSetCapability) {
-			serializer = new CustomGitProjectSetCapability();
+			serializer = new CustomGitProjectSetCapability(getShell());
 		}
 		
 		IProject[] allProjects = serializer
@@ -36,6 +42,10 @@ public class RepositoryHelper {
 										.size()]), context,
 						monitor);
 		return allProjects;
+	}
+
+	protected Shell getShell() {
+		return shell;
 	}
 
 	ProjectSetCapability getSerializer(

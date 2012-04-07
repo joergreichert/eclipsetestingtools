@@ -99,7 +99,7 @@ public class CustomProjectSetImportWizard extends Wizard implements IImportWizar
 
 	private CustomProjectSetImporter getCustomProjectSetImporter() {
 		if(customProjectSetImporter == null) {
-			customProjectSetImporter = new CustomProjectSetImporter();
+			customProjectSetImporter = new CustomProjectSetImporter(getShell());
 		}
 		return customProjectSetImporter;
 	}
