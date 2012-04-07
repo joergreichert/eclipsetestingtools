@@ -28,6 +28,11 @@ import org.eclipse.ui.XMLMemento;
 public class WorkingSetImportHelper {
 	private WorkingSetHelper wsHelper;
 	private RepositoryHelper repositoryHelper;
+	private Shell shell;
+
+	public WorkingSetImportHelper(Shell shell) {
+		this.shell = shell;
+	}
 
 	protected WorkingSetHelper getWorkingSetHelper() {
 		if (wsHelper == null) {
@@ -36,9 +41,9 @@ public class WorkingSetImportHelper {
 		return wsHelper;
 	}
 
-	protected RepositoryHelper getRepositoryHelper() {
+	protected RepositoryHelper getRepositoryHelper(Shell shell) {
 		if (repositoryHelper == null) {
-			repositoryHelper = new RepositoryHelper();
+			repositoryHelper = new RepositoryHelper(shell);
 		}
 		return repositoryHelper;
 	}
@@ -103,12 +108,12 @@ public class WorkingSetImportHelper {
 			UIProjectSetSerializationContext context, List errors,
 			ArrayList referenceStrings, IMemento[] providers, int i) {
 		try {
-			RepositoryProviderType providerType = getRepositoryHelper()
+			RepositoryProviderType providerType = getRepositoryHelper(getShell())
 					.getProviderType(providers, i);
-			ProjectSetCapability serializer = getRepositoryHelper()
+			ProjectSetCapability serializer = getRepositoryHelper(getShell())
 					.getSerializer(providerType);
 			if (serializer != null) {
-				IProject[] allProjects = getRepositoryHelper().addToWorkspace(
+				IProject[] allProjects = getRepositoryHelper(getShell()).addToWorkspace(
 						monitor, context, referenceStrings, serializer);
 				calculateNewProjects(newProjects, allProjects);
 			}
@@ -116,5 +121,9 @@ public class WorkingSetImportHelper {
 		} catch (TeamException e) {
 			errors.add(e);
 		}
+	}
+
+	protected Shell getShell() {
+		return shell;
 	}
 }

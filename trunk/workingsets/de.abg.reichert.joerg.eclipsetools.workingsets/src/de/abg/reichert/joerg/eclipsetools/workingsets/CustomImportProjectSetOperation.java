@@ -6,6 +6,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.operation.IRunnableContext;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.team.internal.ui.TeamUIMessages;
 import org.eclipse.team.internal.ui.TeamUIPlugin;
 import org.eclipse.team.internal.ui.wizards.PsfFilenameStore;
@@ -70,14 +71,14 @@ public class CustomImportProjectSetOperation extends TeamOperation {
 	}
 	
 	private void runForStringContent(IProgressMonitor monitor) throws InvocationTargetException{
-		IProject[] newProjects = getProjectSetImporter().importProjectSetFromString(
+		IProject[] newProjects = getProjectSetImporter(getShell()).importProjectSetFromString(
 				psfFileContents, urlString, getShell(), monitor);
 		createWorkingSet(workingSets, newProjects);
 	}
 	
 	private void runForFile(IProgressMonitor monitor) throws InvocationTargetException{
 		PsfFilenameStore.getInstance().remember(psfFile);
-		IProject[] newProjects = getProjectSetImporter().importProjectSet(psfFile,
+		IProject[] newProjects = getProjectSetImporter(getShell()).importProjectSet(psfFile,
 				getShell(), monitor);
 		createWorkingSet(workingSets, newProjects);
 	}
@@ -135,9 +136,9 @@ public class CustomImportProjectSetOperation extends TeamOperation {
 		}
 	}
 	
-	protected CustomProjectSetImporter getProjectSetImporter() {
+	protected CustomProjectSetImporter getProjectSetImporter(Shell shell) {
 		if(customProjectSetImporter == null) {
-			customProjectSetImporter = new CustomProjectSetImporter();
+			customProjectSetImporter = new CustomProjectSetImporter(shell);
 		}
 		return customProjectSetImporter;
 	}
