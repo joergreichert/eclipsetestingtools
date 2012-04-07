@@ -1,0 +1,75 @@
+#summary How to use Git Local Working Sets.
+
+= Git Local Working Sets =
+
+== Introduction ==
+
+[http://www.eclipse.org/egit/ EGit] is an Eclipse Team provider for the [http://git-scm.com/ Git] version control system. It also provides an importer for team project sets that are stored in [http://wiki.eclipse.org/PSF psf files]. A Team project set not only contains the information which projects should be checked out from which remote repositories but also includes the definition how those projects are grouped in [http://eclipse.dzone.com/articles/categorise-projects-package Eclipse working sets].
+
+== Motiviation ==
+
+=== Actual state ===
+
+Unfortunately using the default Team Project Set importer will always check out the projects from remote in the current local workspace, not respecting the projects already checked out. So if there appear clashes with existing local projects you can prevent overridden the existing projects but this will exclude the project from being assigned to the working set defined in the psf file.
+
+=== Desired state ===
+
+So what you actually want is to apply the working set definition (contained in a psf file) to a already checked out bunch of projects, so that the working sets are created or updated and the projects are assigned properly to the working sets.
+
+=== Work arounds ===
+
+So the current work arounds would be
+1. Reassign the local projects to working sets manually
+2. Share the workingsets.xml from
+
+{{{
+workspace\.metadata\.plugins\org.eclipse.ui.workbench\workingsets.xml
+}}}
+
+3. Override the local projects by checking out the projects again.
+
+=== Special case: EGit ===
+
+A special case is the team provider of Git. The default implementation in [http://egit.eclipse.org/w/?p=egit.git;a=blob;f=org.eclipse.egit.core/src/org/eclipse/egit/core/GitProjectSetCapability.java;h=6719fd0465a7763770c6f33eef80a9d292712dda;hb=f69abbe1ee4fd9d82401eddc474b79bba7b62150 GitProjectSetCapability] defines that the complete Git repository is cloned into the current local workspace. But usually you have a separate folder where you hold your local Git repository clones and just import the projects in the workspace by reference.
+
+== Prerequisites ==
+ * EGit, especially the EGit Project Set, is installed either by
+  * Indigo update site and EGit,  Support JGit features selected
+  * or directly from the [http://download.eclipse.org/egit/updates EGit update site]
+
+== Install ==
+ * Download [http://code.google.com/p/eclipsetestingtools/downloads/detail?name=de.abg.reichert.joerg.eclipsetools.updatesite.zip de.abg.reichert.joerg.eclipsetools.updatesite.zip]
+ * Unpack the downloaded archive
+
+{{{
+Help -> Install New Software...
+}}}
+
+{{{
+Add... -> Local -> the directory with the unpacked update site
+}}}
+
+ * Select the sole feature, Next, Next, Accept, Finish
+
+== Usage ==
+
+{{{
+File -> Import... -> Team/Custom Team Project Set -> Next
+}}}
+
+Either 
+ * select File if you have got a local psf file or 
+ * select URL if you know the address of a remote stored psf file
+
+Press Finish.
+
+In contrast to the default importer a folder selection dialog appears: here you can choose the folder containing the locally cloned Git repositories, e.g. C:\git.
+If you cancel this dialog the default behavior of the team project set provider is used, i.e. the repository is cloned into the local repository.
+
+The name of the Git repository is appended to that location so that if your Git repository is named MyGitRepository the location C:\git\MyGitRepository is used as working directory. If there is no locally cloned Git repository yet the repository is cloned.
+
+The working sets are created and the projects are imported by reference. If there is a working set with the same name as the one that should be imported you will be asked if this working set should be 
+ * replace: the current assigned projects that are not contained in the psf definition are unassigned, so that only the projects assignments from the psf file are applied
+ * merge: projects assignments from the psf file are applied, but the existing assignments to this working set are kept
+ * skip: the current assignments are kept, the assignments from the psf file are ignored
+ * cancel: the project and working set import is rolled back
