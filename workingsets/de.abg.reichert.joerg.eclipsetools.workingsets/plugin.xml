@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.psf"
+            id="org.eclipse.team.ui.ProjectSetFileContributions">
+         <action
+               label="%CustomImportProjectSet.label"
+               class="de.abg.reichert.joerg.eclipsetools.workingsets.CustomImportProjectSetAction"
+               menubarPath="team.main"
+               enablesFor="*"
+               id="nonbound.org.eclipse.team.ui.ImportProjectSetAction">
+         </action>
+      </objectContribution>         
+   </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            name="%Team"
+            id="org.eclipse.team.ui.importWizards">
+      </category>
+         
+      <wizard
+            name="%CustomProjectSetImportWizard.name"
+            icon="$nl$/icons/full/obj/import_projectset.gif"
+            class="de.abg.reichert.joerg.eclipsetools.workingsets.CustomProjectSetImportWizard"
+            category="org.eclipse.team.ui.importWizards"
+            id="org.eclipse.team.ui.ProjectSetImportWizard">
+         <description>
+            %CustomProjectSetImportWizard.description
+         </description>
+         <selection
+               class="org.eclipse.core.resources.IProject">
+         </selection>
+         <keywordReference
+               id="org.eclipse.team.ui.team.projectSet">
+         </keywordReference>
+      </wizard>
+   </extension>
+</plugin>
