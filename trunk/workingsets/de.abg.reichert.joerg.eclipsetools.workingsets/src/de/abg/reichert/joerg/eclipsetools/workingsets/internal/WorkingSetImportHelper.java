@@ -61,7 +61,8 @@ public class WorkingSetImportHelper {
 			newProjects.addAll(Arrays.asList(projects));
 	}
 
-	public void handleWorkingSets(XMLMemento xmlMemento, Shell shell) {
+	public List<String> handleWorkingSets(XMLMemento xmlMemento, Shell shell) {
+		List<String> workingSetNames = new ArrayList<String>(); 
 		// try working sets
 		IMemento[] sets = xmlMemento.getChildren("workingSets"); //$NON-NLS-1$
 		IWorkingSetManager wsManager = TeamUIPlugin.getPlugin().getWorkbench()
@@ -72,6 +73,7 @@ public class WorkingSetImportHelper {
 		for (int i = 0; i < sets.length; i++) {
 			IWorkingSet newWs = wsManager.createWorkingSet(sets[i]);
 			if (newWs != null) {
+				workingSetNames.add(newWs.getName());
 				IWorkingSet oldWs = wsManager.getWorkingSet(newWs.getName());
 				if (oldWs == null) {
 					wsManager.addWorkingSet(newWs);
@@ -85,6 +87,7 @@ public class WorkingSetImportHelper {
 				}
 			}
 		}
+		return workingSetNames;
 	}
 
 	public void handleErrors(List errors) throws TeamException {
