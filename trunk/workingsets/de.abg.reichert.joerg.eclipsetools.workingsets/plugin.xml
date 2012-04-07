@@ -8,7 +8,7 @@
             nameFilter="*.psf"
             id="org.eclipse.team.ui.ProjectSetFileContributions">
          <action
-               label="%CustomImportProjectSet.label"
+               label="%action.label"
                class="de.abg.reichert.joerg.eclipsetools.workingsets.CustomImportProjectSetAction"
                menubarPath="team.main"
                enablesFor="*"
@@ -19,18 +19,18 @@
    <extension
          point="org.eclipse.ui.importWizards">
       <category
-            name="%Team"
+            name="%category.name"
             id="org.eclipse.team.ui.importWizards">
       </category>
          
       <wizard
-            name="%CustomProjectSetImportWizard.name"
+            name="%wizard.name"
             icon="$nl$/icons/full/obj/import_projectset.gif"
             class="de.abg.reichert.joerg.eclipsetools.workingsets.CustomProjectSetImportWizard"
             category="org.eclipse.team.ui.importWizards"
             id="org.eclipse.team.ui.ProjectSetImportWizard">
          <description>
-            %CustomProjectSetImportWizard.description
+           %wizard.description
          </description>
          <selection
                class="org.eclipse.core.resources.IProject">
