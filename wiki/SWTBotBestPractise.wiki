@@ -47,6 +47,6 @@ By implementing such flows and actions you will
 == Examples ==
 
 Current !SWTBot test cases implemented by me in other projects that can serve as reference for a library:
-* [http://code.google.com/p/eclipsetestingtools/source/browse/trunk/junit4runner/example/de.abg.jreichert.junit4runner.example.test/src/de/abg/jreichert/junit4runner/JUnit4RunnerTest.java JUnit4RunnerTest]
-* [http://cataquavice.svn.sourceforge.net/viewvc/cataquavice/trunk/tests/de.abg.jreichert.serviceqos.ui.test/src/de/abg/jreichert/serviceqos/ui/swtbottest/AbstractSwtBotTester.java?revision=439&view=markup AbstractSwtBotTester]
-* [http://code.google.com/a/eclipselabs.org/p/spray/source/browse/tests/org.eclipselabs.spray.examples.one.tests/src/org/eclipselabs/spray/wizard/tests/SprayProjectWizardTestHelper.java SprayProjectWizardTestHelper]
+ * [http://code.google.com/p/eclipsetestingtools/source/browse/trunk/junit4runner/example/de.abg.jreichert.junit4runner.example.test/src/de/abg/jreichert/junit4runner/JUnit4RunnerTest.java JUnit4RunnerTest]
+ * [http://cataquavice.svn.sourceforge.net/viewvc/cataquavice/trunk/tests/de.abg.jreichert.serviceqos.ui.test/src/de/abg/jreichert/serviceqos/ui/swtbottest/AbstractSwtBotTester.java?revision=439&view=markup AbstractSwtBotTester]
+ * [http://code.google.com/a/eclipselabs.org/p/spray/source/browse/tests/org.eclipselabs.spray.examples.one.tests/src/org/eclipselabs/spray/wizard/tests/SprayProjectWizardTestHelper.java SprayProjectWizardTestHelper]
