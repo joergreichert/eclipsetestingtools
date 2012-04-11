@@ -1,0 +1,52 @@
+#summary Library of SWTBot best practise use cases
+
+[http://swtbot.com/ SWTBot] is a tool for automated UI tests for SWT based applications like e.g. Eclipse.
+
+== Introduction ==
+
+In constrast to other tools like [https://code.google.com/p/windowtester/ WindowBuilder] and [http://www.eclipse.org/jubula/ Jubula] you have to write the tests manually and cannot generate them by just clicking around in the UI. 
+
+So there is more effort to produce the tests and keep them up to date. 
+
+But you are more flexible and you are forced to think more clearly about the flow in the UI to test and ways how to structure your test logic in higher order functions to compose diffent UI flows with same logic blocks.
+
+See for information the 
+* [http://swtbot.com/user-guide/ Use guide]
+* [http://swtbot.com/cheat-sheet/ Cheat sheet]
+
+== Motivation ==
+
+When using !SWTBot you will see soon that there a lot of recurring similar flows and actions like
+* expanding nodes in a tree viewer
+* creating file/folders with a certain wizard
+* opening an editor for a selected file/node
+* filling a form with values
+* exercising a wizard with different data sets
+** choosing different (radio) buttons that lead to different following pages
+** input different data in the forms, even invalid data to check the fault management
+* editing text files
+** inserting text
+** replacing existing text with new one
+** invoke events like auto completion
+
+By implementing such flows and actions you will
+* waiting for events to happen
+** wait until window appear, then continue
+** wait until window disappear, then continue
+* find elements in the UI
+** some elements cannot be find with the existing matchers of !SWTBot
+*** as not exposed by API (private field)
+*** have no usable identifier (anonymous element in a list, that might be only accessible by a index - brittle when the order changes)
+** some elements can be found under Windows but not running !MacOS 
+ 
+== Goals ==
+
+* provide a library of reusable parametrizable methods with that you can compose different flows easily
+* provide a library of reusable parametrizable matchers for finding UI elements that cannot be accessed easily
+
+== Examples ==
+
+Current !SWTBot test cases implemented by me in other projects that can serve as reference for a library:
+* [http://code.google.com/p/eclipsetestingtools/source/browse/trunk/junit4runner/example/de.abg.jreichert.junit4runner.example.test/src/de/abg/jreichert/junit4runner/JUnit4RunnerTest.java JUnit4RunnerTest]
+* [http://cataquavice.svn.sourceforge.net/viewvc/cataquavice/trunk/tests/de.abg.jreichert.serviceqos.ui.test/src/de/abg/jreichert/serviceqos/ui/swtbottest/AbstractSwtBotTester.java?revision=439&view=markup AbstractSwtBotTester]
+* [http://code.google.com/a/eclipselabs.org/p/spray/source/browse/tests/org.eclipselabs.spray.examples.one.tests/src/org/eclipselabs/spray/wizard/tests/SprayProjectWizardTestHelper.java SprayProjectWizardTestHelper]
