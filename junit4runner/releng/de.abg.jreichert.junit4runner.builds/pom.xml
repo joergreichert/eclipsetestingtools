@@ -52,8 +52,8 @@
 			<properties>
 				<jacoco.version>0.5.6.201201232323</jacoco.version>
 				<jacoco.propertyName>coverageAgent</jacoco.propertyName>
-				<jacoco.destFile>../../releng/de.abg.jreichert.eclipsetestingtools.parent/target/jacoco.exec</jacoco.destFile>
-				<jacoco.it.destFile>../../releng/de.abg.jreichert.eclipsetestingtools.parent/target/jacoco_it.exec</jacoco.it.destFile>
+				<jacoco.destFile>../../../releng/de.abg.jreichert.eclipsetestingtools.parent/target/jacoco.exec</jacoco.destFile>
+				<jacoco.it.destFile>../../../releng/de.abg.jreichert.eclipsetestingtools.parent/target/jacoco_it.exec</jacoco.it.destFile>
 				<jacoco.append>true</jacoco.append>
 				<jacoco.includes>de.abg.jreichert.*</jacoco.includes>
 				<jacoco.exclClassLoaders>sun.reflect.DelegatingClassLoader:org.powermock.core.classloader.MockClassLoader</jacoco.exclClassLoaders>
@@ -63,34 +63,6 @@
 				<sonar.jacoco.reportPath>${jacoco.destFile}</sonar.jacoco.reportPath>
 				<sonar.jacoco.itReportPath>${jacoco.it.destFile}</sonar.jacoco.itReportPath>
 			</properties> 
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.jacoco</groupId>
-						<artifactId>jacoco-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>agent</id>
-								<goals>
-									<goal>prepare-agent</goal>
-								</goals>
-								<configuration>
-									<append>true</append>
-									<destFile>${sonar.jacoco.reportPath}</destFile>								
-									<includes>
-										<include>de.abg.jreichert.*</include>
-									</includes>								
-								</configuration>
-							</execution>
-							<execution>
-								<id>report</id>
-								<phase>site</phase>
-								<goals><goal>report</goal></goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>						
 	</profiles>
 </project>
