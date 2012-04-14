@@ -69,27 +69,18 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.eclipse.tycho</groupId>
-						<artifactId>tycho-surefire-plugin</artifactId>
-						<version>${tycho-version}</version>
-						<configuration>
-							<argLine>${coverageAgent} -Xms512m -Xmx1024m -XX:MaxPermSize=512m</argLine>
-							<useUIHarness>false</useUIHarness>
-							<includes>
-								<include>**/*Test.java</include>
-							</includes>
-							<forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
-						</configuration>
-					</plugin>
-					<plugin>
 						<groupId>org.jacoco</groupId>
 						<artifactId>jacoco-maven-plugin</artifactId>
-						<version>${jacoco.version}</version>
 						<executions>
 							<execution>
-								<goals>
-									<goal>prepare-agent</goal>
-								</goals>
+								<id>agent</id>
+								<phase>pre-integration-test</phase>
+								<goals><goal>prepare-agent</goal></goals>
+							</execution>
+							<execution>
+								<id>report</id>
+								<phase>site</phase>
+								<goals><goal>report</goal></goals>
 							</execution>
 						</executions>
 					</plugin>
