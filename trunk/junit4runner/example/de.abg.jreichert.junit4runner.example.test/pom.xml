@@ -17,7 +17,7 @@
 	<properties>
 		<jacoco.version>0.5.6.201201232323</jacoco.version>
 		<jacoco.propertyName>coverageAgent</jacoco.propertyName>
-		<jacoco.destFile>../../releng/de.abg.jreichert.eclipsetestingtools.parent/target/jacoco_it.exec</jacoco.destFile>
+		<jacoco.destFile>../../../releng/de.abg.jreichert.eclipsetestingtools.parent/target/jacoco_it.exec</jacoco.destFile>
 		<jacoco.append>true</jacoco.append>
 		<jacoco.includes>de.abg.jreichert.*</jacoco.includes>
 		<jacoco.exclClassLoaders>sun.reflect.DelegatingClassLoader:org.powermock.core.classloader.MockClassLoader</jacoco.exclClassLoaders>
