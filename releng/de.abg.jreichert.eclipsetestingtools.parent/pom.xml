@@ -274,6 +274,34 @@
 			</properties>
 		</profile>	
 		<profile>
+			<id>sonarLocal</id>
+			<properties>
+				<!--
+				<sonar.jdbc.url>jdbc:mysql://localhost:3306/sonar?useUnicode=true&amp;characterEncoding=utf8</sonar.jdbc.url>
+				<sonar.jdbc.driverClassName>com.mysql.jdbc.Driver</sonar.jdbc.driverClassName>
+				<sonar.jdbc.username>sonar</sonar.jdbc.username>
+				<sonar.jdbc.password>sonar</sonar.jdbc.password>
+				-->
+				<sonar.host.url>http://localhost:9000/</sonar.host.url>
+				<sonar.java.source>1.6</sonar.java.source>
+				<sonar.java.target>1.6</sonar.java.target>				
+				<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+			</properties> 
+		</profile>
+		<profile>
+			<id>sonarRemote</id>
+			<properties>
+				<sonar.jdbc.url>jdbc:mysql://ec2-174-129-80-78.compute-1.amazonaws.com:3306/sonar?useUnicode=true&amp;characterEncoding=utf8</sonar.jdbc.url>
+				<sonar.jdbc.driverClassName>com.mysql.jdbc.Driver</sonar.jdbc.driverClassName>
+				<sonar.jdbc.username>sonar</sonar.jdbc.username>
+				<sonar.jdbc.password>sonar</sonar.jdbc.password>
+				<sonar.host.url>http://ec2-174-129-80-78.compute-1.amazonaws.com:9000/</sonar.host.url>
+				<sonar.java.source>1.6</sonar.java.source>
+				<sonar.java.target>1.6</sonar.java.target>				
+				<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+			</properties> 
+		</profile>
+		<profile>
 			<id>codeCoverage</id>
 			<properties>
 				<jacoco.version>0.5.6.201201232323</jacoco.version>
@@ -294,12 +322,6 @@
 				<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 				<sonar.jacoco.reportPath>${jacoco.destFile}</sonar.jacoco.reportPath>
 				<sonar.jacoco.itReportPath>${jacoco.destFile}</sonar.jacoco.itReportPath>
-
-				<sonar.jdbc.url>jdbc:mysql://ec2-174-129-80-78.compute-1.amazonaws.com:3306/sonar?useUnicode=true&amp;characterEncoding=utf8</sonar.jdbc.url>
-				<sonar.jdbc.driverClassName>com.mysql.jdbc.Driver</sonar.jdbc.driverClassName>
-				<sonar.jdbc.username>sonar</sonar.jdbc.username>
-				<sonar.jdbc.password>sonar</sonar.jdbc.password>
-				<sonar.host.url>http://ec2-174-129-80-78.compute-1.amazonaws.com:9000/</sonar.host.url>
 			</properties> 
 			<build>
 				<plugins>
