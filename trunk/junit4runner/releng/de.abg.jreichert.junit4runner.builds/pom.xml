@@ -50,11 +50,11 @@
 			<properties>
 				<jacoco.version>0.5.6.201201232323</jacoco.version>
 
-				<jacoco.propertyName>coverageAgent</jacoco.propertyName>
-				<jacoco.destFile>../../../releng/de.abg.jreichert.eclipsetestingtools.parent/target/jacoco.exec</jacoco.destFile>
-				<jacoco.it.destFile>../../../releng/de.abg.jreichert.eclipsetestingtools.parent/target/jacoco_it.exec</jacoco.it.destFile>
-				<jacoco.append>true</jacoco.append>
-				<jacoco.includes>de.abg.jreichert.*</jacoco.includes>
+				<!--jacoco.propertyName>coverageAgent</jacoco.propertyName-->
+				<!--jacoco.destFile>../../../releng/de.abg.jreichert.eclipsetestingtools.parent/target/jacoco.exec</jacoco.destFile-->
+				<!--jacoco.it.destFile>../../../releng/de.abg.jreichert.eclipsetestingtools.parent/target/jacoco_it.exec</jacoco.it.destFile-->
+				<!--jacoco.append>true</jacoco.append-->
+				<!--jacoco.includes>de.abg.jreichert.*</jacoco.includes-->
 				<!--jacoco.excludes>java.*</jacoco.excludes-->
 				<!--jacoco.exclClassLoaders>sun.reflect.DelegatingClassLoader:MyClassLoader</jacoco.exclClassLoaders-->
 				<!--jacoco.sessionId>junit4runnerSession</jacoco.sessionId-->
@@ -84,6 +84,11 @@
 										<include>de.abg.jreichert.*</include>
 									</includes>								
 								</configuration>
+							</execution>
+							<execution>
+								<id>report</id>
+								<phase>site</phase>
+								<goals><goal>report</goal></goals>
 							</execution>
 						</executions>
 					</plugin>
