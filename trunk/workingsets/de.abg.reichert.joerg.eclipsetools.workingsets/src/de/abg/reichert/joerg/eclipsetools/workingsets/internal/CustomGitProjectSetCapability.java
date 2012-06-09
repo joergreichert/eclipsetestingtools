@@ -242,7 +242,9 @@ public class CustomGitProjectSetCapability extends ProjectSetCapability {
 	protected void createProject(final IProgressMonitor monitor,
 			final IProjectDescription projectDescription,
 			final IProject project, boolean exists) throws CoreException {
-		project.create(projectDescription, monitor);
+		if(!project.exists()) {
+			project.create(projectDescription, monitor);
+		}
 	}
 
 	protected void clone(final IProgressMonitor monitor, final URIish gitUrl,
@@ -321,13 +323,29 @@ public class CustomGitProjectSetCapability extends ProjectSetCapability {
 			workspaceLocation = ResourcesPlugin.getWorkspace().getRoot()
 					.getRawLocation();
 		}
+		String[] children = workspaceLocation.toFile().list();
+		boolean containsGit = false;
+		if(children != null) {
+			for(String child : children) {
+				if(".git".equals(child)) {
+					containsGit = true;
+					break;		
+				}
+			}
+		}
+		
 		final String humanishName = gitUrl.getHumanishName();
-		String extendedName;
-		if (allBranches.size() == 1 || branch.equals(Constants.MASTER))
-			extendedName = humanishName;
-		else
-			extendedName = humanishName + "_" + branch; //$NON-NLS-1$
-		final IPath workDir = workspaceLocation.append(extendedName);
+		final IPath workDir;
+		if(!containsGit) {
+			String extendedName;
+			if (allBranches.size() == 1 || branch.equals(Constants.MASTER))
+				extendedName = humanishName;
+			else
+				extendedName = humanishName + "_" + branch; //$NON-NLS-1$
+			workDir = workspaceLocation.append(extendedName);
+		} else {
+			workDir = workspaceLocation;
+		}
 		return workDir;
 	}
 
