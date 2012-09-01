@@ -39,7 +39,7 @@ A special case is the team provider of Git. The default implementation in [http:
   * or directly from the [http://download.eclipse.org/egit/updates EGit update site]
 
 == Install ==
- * Download [http://code.google.com/p/eclipsetestingtools/downloads/detail?name=de.abg.reichert.joerg.eclipsetools.updatesite.zip de.abg.reichert.joerg.eclipsetools.updatesite.zip]
+ * Download [http://eclipsetestingtools.googlecode.com/files/git_local_workingsets-1.0.1.zip de.abg.reichert.joerg.eclipsetools.updatesite.zip]
  * Unpack the downloaded archive
 
 {{{
