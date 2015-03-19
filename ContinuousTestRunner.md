@@ -1,0 +1,3 @@
+# Motivation #
+
+Writing a lot of JUnit tests is good thing but often you forgot to run them before checking in changed code. Wouldn't it be nice if there is a automated process that triggers the execution of your tests when the code base has changed? Actually there is already a Eclipse plug-in which does that, [InfinitTest](http://improvingworks.com/products/infinitest/), but it is commercial. Thus here should evolve an open source alternative.

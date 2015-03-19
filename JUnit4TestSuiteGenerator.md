@@ -1,0 +1,29 @@
+# JUnit 4 test suite generator #
+
+## Motivation ##
+
+Eclipse even in the current Helios release supports the generation and update of a JUnit  test suite class for JUnit3. This plug-in enables the generation of a JUnit 4 test suite. The generated test suite includes JUnit 4 as well as JUnit 3 test case classes that are situated in the package where this generation function is called via the context menu in the Java package explorer view.
+
+## Install ##
+
+  1. Download and extract the [update site](http://eclipsetestingtools.googlecode.com/files/de.abg.jreichert.eclipsetestingtools.updatesite.zip) <br />
+  1. Add the local update site in the install manager <br />
+> > ![https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/update_site_screenshots/01.png](https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/update_site_screenshots/01.png) <br /><br />
+> > ![https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/update_site_screenshots/02.png](https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/update_site_screenshots/02.png) <br /><br />
+> > ![https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/update_site_screenshots/03.png](https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/update_site_screenshots/03.png) <br /><br />
+> > ![https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/update_site_screenshots/04.png](https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/update_site_screenshots/04.png) <br />
+  1. Install the plug-in and restart Eclipse
+
+<br />
+
+## Use ##
+
+![https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/01.png](https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/01.png) <br /><br />
+![https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/02.png](https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/02.png) <br /><br />
+![https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/03.png](https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/03.png) <br /><br />
+![https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/04.png](https://eclipsetestingtools.googlecode.com/svn/wiki/junit4_testsuite_generator_screenshots/04.png)
+
+## Future plans ##
+  * more scenarios and more fault tolerance (as the current implementation does a lot of copy paste of the existing JUnit 3 support and is a brute force adaption to JUnit 4)
+  * provide selection of JUnit test cases not as list but as tree of packages and sub packages
+  * support of generating JUnit 4 test case classes
